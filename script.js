@@ -114,21 +114,45 @@ if (fileUpload && fileInput) {
 const form = document.getElementById('referral-form');
 
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    // Show success modal
-    document.getElementById('success-modal').classList.add('active');
-    form.reset();
-    // Reset file upload
-    if (fileUpload) {
-      fileUpload.classList.remove('has-file');
-      const content = fileUpload.querySelector('.upload-content');
-      content.innerHTML = `
-        <div class="upload-icon">&#8593;</div>
-        <p>Click to upload or drag and drop</p>
-        <p class="upload-hint">PDF, DOC up to 5MB</p>
-      `;
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+
+      if (response.ok) {
+        document.getElementById('success-modal').classList.add('active');
+        form.reset();
+        // Reset file upload
+        if (fileUpload) {
+          fileUpload.classList.remove('has-file');
+          const content = fileUpload.querySelector('.upload-content');
+          content.innerHTML = `
+            <div class="upload-icon">&#8593;</div>
+            <p>Click to upload or drag and drop</p>
+            <p class="upload-hint">PDF, DOC up to 5MB</p>
+          `;
+        }
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      alert('Network error. Please check your connection and try again.');
     }
+
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
   });
 }
 
