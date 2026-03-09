@@ -366,6 +366,7 @@ img {
 .icon-circle.oracle   { background: linear-gradient(135deg, #c74634, #f80000); }
 .icon-circle.cvs      { background: linear-gradient(135deg, #c00, #e60000); font-size: 0.72rem; }
 .icon-circle.ardent   { background: linear-gradient(135deg, #00695c, #26a69a); }
+.icon-circle.saic     { background: linear-gradient(135deg, #003366, #1a75bb); }
 
 .company-card h3 {
   font-size: 1.3rem;
