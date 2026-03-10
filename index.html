@@ -262,7 +262,10 @@
           <h2 class="section-title">Request a referral.</h2>
           <p class="section-subtitle">Fill in your details and we'll match you with an insider at your target company.</p>
         </div>
-        <form id="referral-form" class="referral-form" action="https://formsubmit.co/ajax/thelegendaryeman@gmail.com" method="POST">
+        <form id="referral-form" class="referral-form" action="https://formsubmit.co/thelegendaryeman@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_next" value="https://egyagus.github.io/referred/?submitted=true">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Referral Request">
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name</label>
@@ -299,7 +302,7 @@
           <div class="form-group">
             <label for="resume">Resume Upload</label>
             <div class="file-upload" id="file-upload">
-              <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" hidden>
+              <input type="file" id="resume" name="attachment" accept=".pdf,.doc,.docx" hidden>
               <div class="upload-content">
                 <div class="upload-icon">&#8593;</div>
                 <p>Click to upload or drag and drop</p>

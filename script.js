@@ -110,49 +110,20 @@ if (fileUpload && fileInput) {
   }
 }
 
-// ===== Form submission =====
+// ===== Form submission (native multipart POST) =====
+// Show success modal if redirected back after submission
+if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
+  window.history.replaceState({}, '', window.location.pathname);
+  document.getElementById('success-modal').classList.add('active');
+}
+
+// Show loading state on submit
 const form = document.getElementById('referral-form');
-
 if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
+  form.addEventListener('submit', () => {
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Submitting...';
     submitBtn.disabled = true;
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(Object.fromEntries(formData)),
-      });
-
-      if (response.ok) {
-        document.getElementById('success-modal').classList.add('active');
-        form.reset();
-        // Reset file upload
-        if (fileUpload) {
-          fileUpload.classList.remove('has-file');
-          const content = fileUpload.querySelector('.upload-content');
-          content.innerHTML = `
-            <div class="upload-icon">&#8593;</div>
-            <p>Click to upload or drag and drop</p>
-            <p class="upload-hint">PDF, DOC up to 5MB</p>
-          `;
-        }
-      } else {
-        alert('Something went wrong. Please try again.');
-      }
-    } catch (error) {
-      alert('Network error. Please check your connection and try again.');
-    }
-
-    submitBtn.textContent = originalText;
-    submitBtn.disabled = false;
   });
 }
 
