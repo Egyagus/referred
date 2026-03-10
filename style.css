@@ -478,75 +478,6 @@ img {
   line-height: 1.55;
 }
 
-/* ===== TESTIMONIALS ===== */
-.testimonials {
-  padding: 8rem 0;
-  background: var(--white);
-}
-
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.testimonial-card {
-  background: var(--gray-50);
-  border-radius: var(--radius-md);
-  padding: 2.2rem;
-  border: 1px solid var(--gray-200);
-  transition: all var(--transition);
-}
-
-.testimonial-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.stars {
-  color: #f5a623;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  letter-spacing: 2px;
-}
-
-.quote {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--gray-800);
-  margin-bottom: 1.5rem;
-  font-style: italic;
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.author-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-.author-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.author-role {
-  font-size: 0.78rem;
-  color: var(--gray-400);
-}
-
 /* ===== REFERRAL FORM ===== */
 .referral-section {
   padding: 8rem 0;
@@ -803,10 +734,6 @@ img {
   .steps-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
-  }
-
-  .testimonial-grid {
-    grid-template-columns: 1fr;
   }
 
   .footer-grid {
