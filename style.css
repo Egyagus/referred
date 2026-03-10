@@ -671,6 +671,64 @@ img {
   margin-bottom: 2rem;
 }
 
+/* ===== LEGAL PAGES ===== */
+.legal-page {
+  padding: 8rem 0 4rem;
+  min-height: 80vh;
+}
+
+.legal-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.legal-content h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.legal-updated {
+  font-size: 0.88rem;
+  color: var(--gray-400);
+  margin-bottom: 3rem;
+}
+
+.legal-content h2 {
+  font-size: 1.2rem;
+  font-weight: 650;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.legal-content p {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.legal-content ul {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.legal-content li {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  margin-bottom: 0.4rem;
+}
+
+.legal-content a {
+  color: var(--blue);
+}
+
+.legal-content a:hover {
+  text-decoration: underline;
+}
+
 /* ===== FOOTER ===== */
 .footer {
   padding: 4rem 0 2rem;
